@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build SDL2 Project",
+            "type": "shell",
+            "command": "/usr/bin/clang",
+            "args": [
+                "-std=c17", // Указываем стандарт C
+                "-I/opt/homebrew/opt/sdl2/include/SDL2", // Указываем include path для SDL2
+                "-I/opt/homebrew/opt/sdl2_image/include/SDL2", // Include path для SDL2_image
+                "${fileDirname}/main.c", // Компилируемый файл
+                "${fileDirname}/input.c", // Компилируемый файл
+                "${fileDirname}/init.c", // Компилируемый файл
+                "${fileDirname}/draw.c", // Компилируемый файл
+                "-o",
+                "${fileDirname}/output/myProgram", // Имя выходного файла (binary)
+                "-L/opt/homebrew/lib", // Указываем путь для поиска библиотек
+                "-lSDL2", // Линкуем SDL2
+                "-lSDL2_image" // Линкуем SDL2_image
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Компиляция SDL2 проекта"
+        }
+    ]
+}
