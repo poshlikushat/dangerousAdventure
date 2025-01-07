@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 
 	initSDL();
 
-	player.x = 100;
+	player.x = 500;
 	player.y = 100;
 	player.texture = loadTexture("../assets/mainHero.png");
 
