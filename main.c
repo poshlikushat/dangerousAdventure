@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 
 	player.x = 100;
 	player.y = 100;
-	player.texture = loadTexture("assets/6663030.jpg");
+	player.texture = loadTexture("../assets/mainHero.png");
 
 	if (player.texture == NULL)
 	{
