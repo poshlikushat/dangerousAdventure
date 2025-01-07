@@ -4,6 +4,7 @@
 #include "defs.h"
 #include "structs.h"
 #include "init.h"
+#include <SDL_image.h>
 
 void initSDL(void) {
 	int rendererFlags, windowFlags;
@@ -32,6 +33,8 @@ void initSDL(void) {
 		printf("Failed to create renderer: %s\n", SDL_GetError());
 		exit(1);
 	}
+
+	IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
 }
 
 void cleanup(void)

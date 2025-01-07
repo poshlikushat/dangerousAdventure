@@ -1,16 +1,28 @@
+#include <string.h>
+#include <stdio.h>
 #include "init.h"
 #include "input.h"
 #include "draw.h"
-#include <string.h>
-#include <stdio.h>
 #include "structs.h"
 
 App app;
+Entity player;
 
 int main(int argc, char *argv[]) {
 	memset(&app, 0, sizeof(App));
+	memset(&player, 0, sizeof(Entity));
 
 	initSDL();
+
+	player.x = 100;
+	player.y = 100;
+	player.texture = loadTexture("assets/6663030.jpg");
+
+	if (player.texture == NULL)
+	{
+		printf("Failed to load texture: %s\n", SDL_GetError());
+		exit(1);
+	}
 
 	atexit(cleanup);
 
@@ -18,6 +30,8 @@ int main(int argc, char *argv[]) {
 		prepareScene();
 
 		doInput();
+
+		blit(player.texture, player.x, player.y);
 
 		presentScene();
 
