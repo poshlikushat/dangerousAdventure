@@ -1,0 +1,386 @@
+[
+	{
+		"filename" : "gfx/misc/logo2.png",
+		"x" : 0,
+		"y" : 0,
+		"w" : 430,
+		"h" : 96,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/misc/logo1.png",
+		"x" : 0,
+		"y" : 97,
+		"w" : 500,
+		"h" : 96,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/40.png",
+		"x" : 431,
+		"y" : 0,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/44.png",
+		"x" : 0,
+		"y" : 194,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/36.png",
+		"x" : 65,
+		"y" : 194,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/1.png",
+		"x" : 130,
+		"y" : 194,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/38.png",
+		"x" : 195,
+		"y" : 194,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/2.png",
+		"x" : 260,
+		"y" : 194,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/4.png",
+		"x" : 325,
+		"y" : 194,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/42.png",
+		"x" : 390,
+		"y" : 194,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/35.png",
+		"x" : 0,
+		"y" : 259,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/43.png",
+		"x" : 65,
+		"y" : 259,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/45.png",
+		"x" : 130,
+		"y" : 259,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/3.png",
+		"x" : 195,
+		"y" : 259,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/39.png",
+		"x" : 260,
+		"y" : 259,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/41.png",
+		"x" : 325,
+		"y" : 259,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/37.png",
+		"x" : 390,
+		"y" : 259,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/tiles/5.png",
+		"x" : 0,
+		"y" : 324,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/misc/fogOfWarRect.png",
+		"x" : 65,
+		"y" : 324,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/stairs.png",
+		"x" : 130,
+		"y" : 324,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/door.png",
+		"x" : 195,
+		"y" : 324,
+		"w" : 64,
+		"h" : 64,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/hud/inventoryArrow.png",
+		"x" : 455,
+		"y" : 194,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/hud/inventorySlotFrame.png",
+		"x" : 455,
+		"y" : 259,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/dungeonMistress.png",
+		"x" : 260,
+		"y" : 324,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/prisoner.png",
+		"x" : 309,
+		"y" : 324,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/goldCoins.png",
+		"x" : 358,
+		"y" : 324,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/blacksmith.png",
+		"x" : 407,
+		"y" : 324,
+		"w" : 51,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/merchant.png",
+		"x" : 459,
+		"y" : 324,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/torch.png",
+		"x" : 0,
+		"y" : 389,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/goblin.png",
+		"x" : 49,
+		"y" : 389,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/signpost.png",
+		"x" : 98,
+		"y" : 389,
+		"w" : 48,
+		"h" : 48,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/openChest.png",
+		"x" : 147,
+		"y" : 389,
+		"w" : 48,
+		"h" : 42,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/chest.png",
+		"x" : 196,
+		"y" : 389,
+		"w" : 48,
+		"h" : 42,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/vampireBat.png",
+		"x" : 245,
+		"y" : 389,
+		"w" : 51,
+		"h" : 39,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/lantern.png",
+		"x" : 297,
+		"y" : 389,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/silverCoin.png",
+		"x" : 330,
+		"y" : 389,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/foxIcon.png",
+		"x" : 363,
+		"y" : 389,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/batteryIcon.png",
+		"x" : 396,
+		"y" : 389,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/dagger.png",
+		"x" : 429,
+		"y" : 389,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/houseIcon.png",
+		"x" : 462,
+		"y" : 389,
+		"w" : 34,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/goldCoin.png",
+		"x" : 0,
+		"y" : 438,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/redPotion.png",
+		"x" : 33,
+		"y" : 438,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/rustyKey.png",
+		"x" : 66,
+		"y" : 438,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/cheese.png",
+		"x" : 99,
+		"y" : 438,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/vinyl.png",
+		"x" : 132,
+		"y" : 438,
+		"w" : 32,
+		"h" : 32,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/eyeball.png",
+		"x" : 431,
+		"y" : 65,
+		"w" : 32,
+		"h" : 30,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/entities/envelopeIcon.png",
+		"x" : 464,
+		"y" : 65,
+		"w" : 32,
+		"h" : 22,
+		"rotated" : 0
+	},
+	{
+		"filename" : "gfx/misc/messageBoxArrow.png",
+		"x" : 165,
+		"y" : 438,
+		"w" : 30,
+		"h" : 16,
+		"rotated" : 0
+	}
+]

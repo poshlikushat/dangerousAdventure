@@ -9,10 +9,19 @@
                 "-std=c17", // Указываем стандарт C
                 "-I/opt/homebrew/opt/sdl2/include/SDL2", // Указываем include path для SDL2
                 "-I/opt/homebrew/opt/sdl2_image/include/SDL2", // Include path для SDL2_image
+                "/opt/homebrew/opt/sdl2_mixer/include/SDL2",
                 "${fileDirname}/main.c", // Компилируемый файл
-                "${fileDirname}/input.c", // Компилируемый файл
-                "${fileDirname}/init.c", // Компилируемый файл
-                "${fileDirname}/draw.c", // Компилируемый файл
+                "${fileDirname}/system/input.c", // Компилируемый файл
+                "${fileDirname}/system/init.c", // Компилируемый файл
+                "${fileDirname}/system/draw.c", // Компилируемый файл
+                "${fileDirname}/system/atlas.c",
+                "${fileDirname}/system/textures.c",
+                "${fileDirname}/system/util.c",
+                "${fileDirname}/json/cJSON.c",
+                "${fileDirname}/game/dungeon.c",
+                "${fileDirname}/game/entities.c",
+                "${fileDirname}/game/map.c",
+                "${fileDirname}/game/player.c",
                 "-o",
                 "${fileDirname}/output/myProgram", // Имя выходного файла (binary)
                 "-L/opt/homebrew/lib", // Указываем путь для поиска библиотек
