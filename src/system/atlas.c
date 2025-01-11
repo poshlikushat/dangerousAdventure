@@ -17,7 +17,7 @@ void initAtlas(void)
 {
 	memset(&atlases, 0, sizeof(AtlasImage) * NUM_ATLAS_BUCKETS);
 
-	atlasTexture = IMG_LoadTexture(app.renderer, "gfx/atlas.png");
+	atlasTexture = IMG_LoadTexture(app.renderer, "../../gfx/atlas.png");
 
 	loadAtlasData();
 }
@@ -54,9 +54,22 @@ static void loadAtlasData(void)
 	char *text, *filename;
 	unsigned long i;
 
-	text = readFile("data/atlas.json");
+	text = readFile("../../data/atlas.json");
+
+	if (text == (void*)0) {
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Failed to load atlas.json: %s", cJSON_GetErrorPtr());
+		free(text);
+		exit(1);
+	}
 
 	root = cJSON_Parse(text);
+
+	if (root == NULL)
+	{
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "Failed to parse atlas.json: %s", cJSON_GetErrorPtr());
+		free(text);
+		exit(1);
+	}
 
 	for (node = root->child; node != NULL; node = node->next)
 	{
@@ -74,6 +87,7 @@ static void loadAtlasData(void)
 		/* horrible bit to look for the tail */
 		while (a->next)
 		{
+			SDL_Log("Traversing list: current filename = %s", a->filename);
 			a = a->next;
 		}
 
