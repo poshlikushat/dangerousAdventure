@@ -31,8 +31,11 @@ void drawEntities(void)
 
 	for (e = dungeon.entityHead.next; e != NULL; e = e->next)
 	{
-		x = (e->x * TILE_SIZE) + (TILE_SIZE / 2);
-		y = (e->y * TILE_SIZE) + (TILE_SIZE / 2);
+		x = e->x - dungeon.camera.x;
+		y = e->y - dungeon.camera.y;
+
+		x = (x * TILE_SIZE) + (TILE_SIZE / 2);
+		y = (y * TILE_SIZE) + (TILE_SIZE / 2);
 
 		x += dungeon.renderOffset.x;
 		y += dungeon.renderOffset.y;

@@ -5,6 +5,7 @@
 #include "player.h"
 
 extern App app;
+extern Dungeon dungeon;
 extern Entity *player;
 
 static void movePlayer(int dx, int dy);
@@ -15,9 +16,12 @@ void initPlayer(void)
 {
 	player = spawnEntity();
 
-	player->x = 5;
-	player->y = 5;
+	player->x = 20;
+	player->y = 20;
 	player->texture = getAtlasImage("gfx/entities/prisoner.png", 1);
+	player->facing = FACING_RIGHT;
+
+	movePlayer(0, 0);
 
 	moveDelay = 0;
 }
@@ -64,8 +68,19 @@ static void movePlayer(int dx, int dy)
 	x = MAX(0, MIN(x, MAP_WIDTH - 1));
 	y = MAX(0, MIN(y, MAP_HEIGHT - 1));
 
-	player->x = x;
-	player->y = y;
+	if (dungeon.map.data[x][y] >= TILE_GROUND && dungeon.map.data[x][y] < TILE_WALL)
+	{
+		player->x = x;
+		player->y = y;
 
-	moveDelay = 5;
+		dungeon.camera.x = x;
+		dungeon.camera.x -= (MAP_RENDER_WIDTH / 2);
+		dungeon.camera.x = MIN(MAX(dungeon.camera.x, 0), MAP_WIDTH - MAP_RENDER_WIDTH);
+
+		dungeon.camera.y = y;
+		dungeon.camera.y -= (MAP_RENDER_HEIGHT / 2);
+		dungeon.camera.y = MIN(MAX(dungeon.camera.y, 0), MAP_HEIGHT - MAP_RENDER_HEIGHT);
+
+		moveDelay = 5;
+	}
 }

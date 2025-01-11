@@ -37,6 +37,7 @@ struct Entity
 typedef struct
 {
 	SDL_Point renderOffset;
+	SDL_Point camera;
 	Entity entityHead, *entityTail;
 	Map map;
 } Dungeon;

@@ -24,11 +24,15 @@
 
 #define MAX_TILES 64
 
-#define MAP_WIDTH 19
-#define MAP_HEIGHT 10
+#define MAP_WIDTH 57
+#define MAP_HEIGHT 30
+
+#define MAP_RENDER_WIDTH 19
+#define MAP_RENDER_HEIGHT 10
 
 #define TILE_HOLE 0
 #define TILE_GROUND 1
+#define TILE_WALL 40
 
 enum
 {

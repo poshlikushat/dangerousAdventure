@@ -19,8 +19,8 @@ void initDungeon(void)
 
 	initPlayer();
 
-	dungeon.renderOffset.x = (SCREEN_WIDTH - (MAP_WIDTH * TILE_SIZE)) / 2;
-	dungeon.renderOffset.y = (SCREEN_HEIGHT - (MAP_HEIGHT * TILE_SIZE)) / 2;
+	dungeon.renderOffset.x = (SCREEN_WIDTH - (MAP_RENDER_WIDTH * TILE_SIZE)) / 2;
+	dungeon.renderOffset.y = (SCREEN_HEIGHT - (MAP_RENDER_HEIGHT * TILE_SIZE)) / 2;
 
 	app.delegate.logic = &logic;
 	app.delegate.draw = &draw;

@@ -15,6 +15,8 @@ void initMap(void)
 {
 	int x, y;
 
+	srand(141);
+
 	loadTiles();
 
 	for (x = 0; x < MAP_WIDTH; x++)
@@ -22,6 +24,16 @@ void initMap(void)
 		for (y = 0; y < MAP_HEIGHT; y++)
 		{
 			dungeon.map.data[x][y] = TILE_GROUND;
+
+			if (rand() % 25 == 0)
+			{
+				dungeon.map.data[x][y] = TILE_HOLE;
+			}
+
+			if (rand() % 30 == 0)
+			{
+				dungeon.map.data[x][y] = TILE_WALL;
+			}
 		}
 	}
 }
@@ -33,13 +45,16 @@ void drawMap(void)
 
 static void drawMapTiles(void)
 {
-	int x, y, n;
+	int x, y, mx, my, n;
 
-	for (y = 0; y < MAP_HEIGHT; y++)
+	for (y = 0; y < MAP_RENDER_HEIGHT; y++)
 	{
-		for (x = 0; x < MAP_WIDTH; x++)
+		for (x = 0; x < MAP_RENDER_WIDTH; x++)
 		{
-			n = dungeon.map.data[x][y];
+			mx = dungeon.camera.x + x;
+			my = dungeon.camera.y + y;
+
+			n = dungeon.map.data[mx][my];
 
 			if (n > TILE_HOLE)
 			{
