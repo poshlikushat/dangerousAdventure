@@ -16,8 +16,8 @@ void initPlayer(void)
 {
 	player = spawnEntity();
 
-	player->x = 20;
-	player->y = 20;
+	player->x = 14;
+	player->y = 28;
 	player->texture = getAtlasImage("gfx/entities/prisoner.png", 1);
 	player->facing = FACING_RIGHT;
 

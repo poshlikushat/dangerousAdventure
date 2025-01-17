@@ -23,33 +23,27 @@ unsigned long hashcode(const char *str)
 
 char *readFile(char *filename)
 {
-	FILE *file = fopen(filename, "rb");
-	if(!file) {
-		SDL_Log("Error: Unable to open file: %s", filename);
-		return NULL;
+	char *buffer;
+	long length;
+	FILE *file;
+
+	file = fopen(filename, "rb");
+
+	if (file == NULL)
+	{
+		SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_CRITICAL, "No such file '%s'", filename);
+		exit(1);
 	}
 
 	fseek(file, 0, SEEK_END);
-	long length = ftell(file);
-	if (length <= 0)
-	{
-		SDL_Log("Error: File is empty or invalid: %s", filename);
-		fclose(file);
-		return NULL;
-	}
-	rewind(file); // Ставим указатель на начало файла
+	length = ftell(file);
+	fseek(file, 0, SEEK_SET);
 
-	char *buffer = malloc(length + 1); // +1 для завершающего \0
-	if (!buffer)
-	{
-		SDL_Log("Error: Failed to allocate memory for file: %s", filename);
-		fclose(file);
-		return NULL;
-	}
-
+	buffer = malloc(length);
+	memset(buffer, 0, length);
 	fread(buffer, 1, length, file);
-	buffer[length] = '\0'; // Завершаем строку
 
 	fclose(file);
+
 	return buffer;
 }
