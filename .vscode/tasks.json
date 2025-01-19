@@ -6,14 +6,14 @@
             "type": "shell",
             "command": "/usr/bin/clang",
             "args": [
-                "-std=c17", // Указываем стандарт C
-                "-I/opt/homebrew/opt/sdl2/include/SDL2", // Указываем include path для SDL2
-                "-I/opt/homebrew/opt/sdl2_image/include/SDL2", // Include path для SDL2_image
+                "-std=c17", 
+                "-I/opt/homebrew/opt/sdl2/include/SDL2", 
+                "-I/opt/homebrew/opt/sdl2_image/include/SDL2", 
                 "-I/opt/homebrew/opt/sdl2_mixer/include/SDL2",
-                "${fileDirname}/main.c", // Компилируемый файл
-                "${fileDirname}/system/input.c", // Компилируемый файл
-                "${fileDirname}/system/init.c", // Компилируемый файл
-                "${fileDirname}/system/draw.c", // Компилируемый файл
+                "${fileDirname}/main.c", 
+                "${fileDirname}/system/input.c",
+                "${fileDirname}/system/init.c", 
+                "${fileDirname}/system/draw.c", 
                 "${fileDirname}/system/atlas.c",
                 "${fileDirname}/system/textures.c",
                 "${fileDirname}/system/util.c",
@@ -22,11 +22,12 @@
                 "${fileDirname}/game/entities.c",
                 "${fileDirname}/game/map.c",
                 "${fileDirname}/game/player.c",
+                "${fileDirname}/game/fogOfWar.c",
                 "-o",
-                "${fileDirname}/output/myProgram", // Имя выходного файла (binary)
-                "-L/opt/homebrew/lib", // Указываем путь для поиска библиотек
-                "-lSDL2", // Линкуем SDL2
-                "-lSDL2_image", // Линкуем SDL2_image
+                "${fileDirname}/output/myProgram",
+                "-L/opt/homebrew/lib", 
+                "-lSDL2", 
+                "-lSDL2_image",
                 "-lSDL2_mixer"
             ],
             "group": {

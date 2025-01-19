@@ -24,6 +24,35 @@ Entity *spawnEntity(void)
 	return e;
 }
 
+void doEntities(void)
+{
+	Entity *e, *prev;
+
+	prev = &dungeon.entityHead;
+
+	for (e = dungeon.entityHead.next; e != NULL; e = e->next)
+	{
+		if (e->alive == ALIVE_DEAD)
+		{
+			if (e == dungeon.entityTail)
+			{
+				dungeon.entityTail = prev;
+			}
+
+			if (e->data != NULL)
+			{
+				free(e->data);
+			}
+
+			prev->next = e->next;
+			free(e);
+			e = prev;
+		}
+
+		prev = e;
+	}
+}
+
 void drawEntities(void)
 {
 	Entity *e;
@@ -31,15 +60,68 @@ void drawEntities(void)
 
 	for (e = dungeon.entityHead.next; e != NULL; e = e->next)
 	{
-		x = e->x - dungeon.camera.x;
-		y = e->y - dungeon.camera.y;
+		if (e->alive != ALIVE_DEAD)
+		{
+			x = e->x - dungeon.camera.x;
+			y = e->y - dungeon.camera.y;
 
-		x = (x * TILE_SIZE) + (TILE_SIZE / 2);
-		y = (y * TILE_SIZE) + (TILE_SIZE / 2);
+			if (x >= 0 && y >= 0 && x < MAP_RENDER_WIDTH && y < MAP_RENDER_HEIGHT)
+			{
+				x = (x * TILE_SIZE) + (TILE_SIZE / 2);
+				y = (y * TILE_SIZE) + (TILE_SIZE / 2);
 
-		x += dungeon.renderOffset.x;
-		y += dungeon.renderOffset.y;
+				x += dungeon.renderOffset.x;
+				y += dungeon.renderOffset.y;
 
-		blitAtlasImage(e->texture, x, y, 1, e->facing == FACING_LEFT ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL);
+				blitAtlasImage(e->texture, x, y, 1, e->facing == FACING_LEFT ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL);
+			}
+		}
+	}
+}
+
+Entity *getEntityAt(int x, int y)
+{
+	Entity *e;
+
+	for (e = dungeon.entityHead.next; e != NULL; e = e->next)
+	{
+		if (e->x == x && e->y == y)
+		{
+			return e;
+		}
+	}
+
+	return NULL;
+}
+
+void addEntityToDungeon(Entity *e)
+{
+	e->next = NULL;
+
+	dungeon.entityTail->next = e;
+	dungeon.entityTail = e;
+}
+
+void removeEntityFromDungeon(Entity *remove)
+{
+	Entity *e, *prev;
+
+	prev = &dungeon.entityHead;
+
+	for (e = dungeon.entityHead.next; e != NULL; e = e->next)
+	{
+		if (e == remove)
+		{
+			if (e == dungeon.entityTail)
+			{
+				dungeon.entityTail = prev;
+			}
+
+			prev->next = e->next;
+
+			remove->next = NULL;
+		}
+
+		prev = e;
 	}
 }

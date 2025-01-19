@@ -1,6 +1,7 @@
 #include "../common.h"
 
 #include "../game/entities.h"
+#include "../game/fogOfWar.h"
 #include "../system/atlas.h"
 #include "player.h"
 
@@ -61,6 +62,7 @@ void doPlayer(void)
 static void movePlayer(int dx, int dy)
 {
 	int x, y;
+	Entity *e;
 
 	x = player->x + dx;
 	y = player->y + dy;
@@ -70,17 +72,29 @@ static void movePlayer(int dx, int dy)
 
 	if (dungeon.map.data[x][y] >= TILE_GROUND && dungeon.map.data[x][y] < TILE_WALL)
 	{
-		player->x = x;
-		player->y = y;
+		e = getEntityAt(x, y);
 
-		dungeon.camera.x = x;
-		dungeon.camera.x -= (MAP_RENDER_WIDTH / 2);
-		dungeon.camera.x = MIN(MAX(dungeon.camera.x, 0), MAP_WIDTH - MAP_RENDER_WIDTH);
+		if (e == NULL || e->solid == SOLID_NON_SOLID || e == player)
+		{
+			player->x = x;
+			player->y = y;
 
-		dungeon.camera.y = y;
-		dungeon.camera.y -= (MAP_RENDER_HEIGHT / 2);
-		dungeon.camera.y = MIN(MAX(dungeon.camera.y, 0), MAP_HEIGHT - MAP_RENDER_HEIGHT);
+			dungeon.camera.x = x;
+			dungeon.camera.x -= (MAP_RENDER_WIDTH / 2);
+			dungeon.camera.x = MIN(MAX(dungeon.camera.x, 0), MAP_WIDTH - MAP_RENDER_WIDTH);
 
-		moveDelay = 5;
+			dungeon.camera.y = y;
+			dungeon.camera.y -= (MAP_RENDER_HEIGHT / 2);
+			dungeon.camera.y = MIN(MAX(dungeon.camera.y, 0), MAP_HEIGHT - MAP_RENDER_HEIGHT);
+
+			moveDelay = 5;
+		}
+
+		if (e != NULL && e->touch != NULL)
+		{
+			e->touch(e, player);
+		}
+
+		updateFogOfWar();
 	}
 }

@@ -25,14 +25,37 @@ typedef struct
 	int data[MAP_WIDTH][MAP_HEIGHT];
 } Map;
 
+typedef struct
+{
+	int lightLevel;
+	int hasSolidEntity;
+} VisData;
+
 struct Entity
 {
 	int x;
 	int y;
+	char name[MAX_NAME_LENGTH];
 	int facing;
+	int alive;
+	int solid;
 	AtlasImage *texture;
+	void(*data);
+	void (*touch)(Entity *self, Entity *other);
 	Entity *next;
 };
+
+typedef struct
+{
+	int gold;
+	Entity *inventorySlots[NUM_INVENTORY_SLOTS];
+} Prisoner;
+
+typedef struct
+{
+	int isOpen;
+	Entity *item;
+} Chest;
 
 typedef struct
 {

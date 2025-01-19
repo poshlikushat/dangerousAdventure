@@ -1,7 +1,13 @@
 #pragma once
 
+#define true 1
+#define false 0
+
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
+#define STRCPY(dest, src)             \
+	strncpy(dest, src, sizeof(dest)); \
+	dest[sizeof(dest) - 1] = '\0'
 #define STRNCPY(dest, src, n) \
 	strncpy(dest, src, n);    \
 	dest[n - 1] = '\0'
@@ -9,9 +15,10 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
-#define FPS 60.0
+#define FPS 50.0
 #define LOGIC_RATE (FPS / 1000)
 
+#define MAX_NAME_LENGTH 32
 #define MAX_FILENAME_LENGTH 256
 
 #define NUM_ATLAS_BUCKETS 64
@@ -34,8 +41,31 @@
 #define TILE_GROUND 1
 #define TILE_WALL 40
 
+#define VIS_DISTANCE 8
+
+#define NUM_INVENTORY_SLOTS 2
+
 enum
 {
 	FACING_LEFT,
 	FACING_RIGHT
+};
+
+enum
+{
+	SOLID_NON_SOLID,
+	SOLID_SOLID
+};
+
+enum
+{
+	ALIVE_ALIVE,
+	ALIVE_DEAD
+};
+
+enum
+{
+	TEXT_ALIGN_LEFT,
+	TEXT_ALIGN_CENTER,
+	TEXT_ALIGN_RIGHT
 };
