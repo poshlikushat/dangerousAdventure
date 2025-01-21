@@ -4,6 +4,7 @@
 #include "../game/map.h"
 #include "../game/player.h"
 #include "../game/fogOfWar.h"
+#include "../game/goblin.h"
 #include "dungeon.h"
 
 extern App app;
@@ -23,6 +24,8 @@ void initDungeon(void)
 	initPlayer();
 
 	initFogOfWar();
+
+	initGoblin();
 
 	dungeon.renderOffset.x = (SCREEN_WIDTH - (MAP_RENDER_WIDTH * TILE_SIZE)) / 2;
 	dungeon.renderOffset.y = (SCREEN_HEIGHT - (MAP_RENDER_HEIGHT * TILE_SIZE)) / 2;
