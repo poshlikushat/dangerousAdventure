@@ -29,6 +29,7 @@ static void attackEntity(void);
 	moveDelay = 0;
 }
 
+//add ability to attack via arrows (because facing with space isn't working)
 void doPlayer(void)
 {
 	moveDelay = MAX(0, moveDelay - app.deltaTime);
@@ -52,18 +53,29 @@ void doPlayer(void)
 		if (app.keyboard[SDL_SCANCODE_W])
 		{
 			movePlayer(0, -1);
-
-			player->facing = FACING_UP;
 		}
 
 		if (app.keyboard[SDL_SCANCODE_S])
 		{
 			movePlayer(0, 1);
-
-			player->facing = FACING_DOWN;
 		}
 
-		if (app.keyboard[SDL_SCANCODE_SPACE])
+		if (app.keyboard[SDL_SCANCODE_UP])
+		{
+			attackEntity();
+		}
+
+		if (app.keyboard[SDL_SCANCODE_DOWN])
+		{
+			attackEntity();
+		}
+
+		if (app.keyboard[SDL_SCANCODE_LEFT])
+		{
+			attackEntity();
+		}
+		
+		if (app.keyboard[SDL_SCANCODE_RIGHT])
 		{
 			attackEntity();
 		}
