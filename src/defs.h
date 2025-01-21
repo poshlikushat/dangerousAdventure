@@ -45,10 +45,14 @@
 
 #define NUM_INVENTORY_SLOTS 2
 
+#define MAX_GOBLINS 5
+
 enum
 {
 	FACING_LEFT,
-	FACING_RIGHT
+	FACING_RIGHT,
+	FACING_DOWN,
+	FACING_UP
 };
 
 enum

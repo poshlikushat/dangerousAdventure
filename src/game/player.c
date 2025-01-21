@@ -12,8 +12,9 @@ extern Entity *player;
 static void movePlayer(int dx, int dy);
 
 static double moveDelay;
+static void attackEntity(void);
 
-void initPlayer(void)
+	void initPlayer(void)
 {
 	player = spawnEntity();
 
@@ -21,6 +22,7 @@ void initPlayer(void)
 	player->y = 28;
 	player->texture = getAtlasImage("gfx/entities/prisoner.png", 1);
 	player->facing = FACING_RIGHT;
+	player->health = 1;
 
 	movePlayer(0, 0);
 
@@ -50,11 +52,20 @@ void doPlayer(void)
 		if (app.keyboard[SDL_SCANCODE_W])
 		{
 			movePlayer(0, -1);
+
+			player->facing = FACING_UP;
 		}
 
 		if (app.keyboard[SDL_SCANCODE_S])
 		{
 			movePlayer(0, 1);
+
+			player->facing = FACING_DOWN;
+		}
+
+		if (app.keyboard[SDL_SCANCODE_SPACE])
+		{
+			attackEntity();
 		}
 	}
 }
@@ -96,5 +107,59 @@ static void movePlayer(int dx, int dy)
 		}
 
 		updateFogOfWar();
+	}
+}
+
+static void attackEntity(void) {
+	int targetX, targetY;
+
+	Entity *target;
+
+	targetX = player->x;
+	targetY = player->y;
+
+	switch (player->facing)
+	{
+	case FACING_LEFT:
+		targetX--;
+		break;
+	case FACING_RIGHT:
+		targetX++;
+		break;
+	case FACING_UP:
+		targetY++;
+		break;
+	case FACING_DOWN:
+		targetY--;
+		break;
+	default:
+		return;
+	}
+
+
+	if (targetX < 0 || targetX >= MAP_WIDTH || targetY < 0 || targetY >= MAP_HEIGHT) {
+		return;
+	}
+
+	target = getEntityAt(targetX, targetY);
+
+	if (target != (void*)0 && target != player) {
+		if(target->health > 0) {
+			target->health -= 1;
+		}
+
+		moveDelay = 15;
+
+		if (target->health <= 0) {
+			if (target->alive != ALIVE_DEAD)
+			{
+				target->alive = ALIVE_DEAD;
+				target->solid = SOLID_NON_SOLID;
+			}
+
+			else {
+				removeEntityFromDungeon(target);
+			}
+		}
 	}
 }

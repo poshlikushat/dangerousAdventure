@@ -39,6 +39,7 @@ struct Entity
 	int facing;
 	int alive;
 	int solid;
+	int health;
 	AtlasImage *texture;
 	void(*data);
 	void (*touch)(Entity *self, Entity *other);
