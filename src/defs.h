@@ -15,7 +15,7 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
-#define FPS 50.0
+#define FPS 59.0
 #define LOGIC_RATE (FPS / 1000)
 
 #define MAX_NAME_LENGTH 32
@@ -46,6 +46,8 @@
 #define NUM_INVENTORY_SLOTS 2
 
 #define MAX_GOBLINS 5
+
+#define MAX_BATS 8
 
 enum
 {

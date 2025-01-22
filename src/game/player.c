@@ -62,21 +62,29 @@ void doPlayer(void)
 
 		if (app.keyboard[SDL_SCANCODE_UP])
 		{
+			player->facing = FACING_UP;
+
 			attackEntity();
 		}
 
 		if (app.keyboard[SDL_SCANCODE_DOWN])
 		{
+			player->facing = FACING_DOWN;
+
 			attackEntity();
 		}
 
 		if (app.keyboard[SDL_SCANCODE_LEFT])
 		{
+			player->facing = FACING_LEFT;
+
 			attackEntity();
 		}
 		
 		if (app.keyboard[SDL_SCANCODE_RIGHT])
 		{
+			player->facing = FACING_RIGHT;
+
 			attackEntity();
 		}
 	}
@@ -139,10 +147,10 @@ static void attackEntity(void) {
 		targetX++;
 		break;
 	case FACING_UP:
-		targetY++;
+		targetY--;
 		break;
 	case FACING_DOWN:
-		targetY--;
+		targetY++;
 		break;
 	default:
 		return;

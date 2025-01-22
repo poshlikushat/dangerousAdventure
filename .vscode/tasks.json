@@ -21,7 +21,7 @@
                 "${workspaceFolder}/src/game/map.c",
                 "${workspaceFolder}/src/game/player.c",
                 "${workspaceFolder}/src/game/fogOfWar.c",
-                "${workspaceFolder}/src/game/goblin.c",
+                "${workspaceFolder}/src/game/monsters.c",
                 "-o",
                 "${workspaceFolder}/src/output/myProgram",
                 "-L/opt/homebrew/lib", 
