@@ -23,18 +23,6 @@ void updateFogOfWar(void) {
 	double distance;
 	Entity *e;
 
-	for (x = 0; x < MAP_WIDTH; x++) {
-		for (y = 0; y < MAP_HEIGHT; y++) {
-			visData[x][y].hasSolidEntity = false;
-		}
-	}
-
-	for (e = dungeon.entityHead.next; e != (void*)0; e = e->next) {
-		if (e->solid) {
-			visData[e->x][e->y].hasSolidEntity = true;
-		}
-	}
-
 	for (y = -VIS_DISTANCE; y <= VIS_DISTANCE; y++) {
 		for (x = -VIS_DISTANCE; x <= VIS_DISTANCE; x++) {
 			mx = player->x + x;
@@ -62,8 +50,11 @@ static int hasLOS(int x1, int y1, int x2, int y2) {
 	dx = abs(x2 - x1);
 	dy = abs(y2 - y1);
 
+	//direction
 	sx = (x1 < x2) ? 1 : -1;
 	sy = (y1 < y2) ? 1 : -1;
+
+	//error
 	err = dx - dy;
 
 	while (1)

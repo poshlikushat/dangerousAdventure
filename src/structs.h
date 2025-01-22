@@ -48,12 +48,6 @@ struct Entity
 
 typedef struct
 {
-	int gold;
-	Entity *inventorySlots[NUM_INVENTORY_SLOTS];
-} Prisoner;
-
-typedef struct
-{
 	int isOpen;
 	Entity *item;
 } Chest;
